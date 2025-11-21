@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO & Meta -->
+    <title>Lumina | Digital Artistry & Creative Development</title>
+    <meta name="description" content="Portfolio of Lumina, an avant-garde web designer and creative developer specializing in immersive 3D experiences, UI/UX design, and motion graphics." />
+    <meta name="keywords" content="Web Design, Creative Developer, UI/UX, React, Motion Graphics, Frontend Engineer, Portfolio" />
+    <meta name="author" content="Lumina" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lumina.design/" />
+    <meta property="og:title" content="Lumina | Digital Artistry" />
+    <meta property="og:description" content="Redefining web experiences through emotional design and technical precision." />
+    <meta property="og:image" content="https://picsum.photos/seed/lumina-og/1200/630" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://lumina.design/" />
+    <meta property="twitter:title" content="Lumina | Digital Artistry" />
+    <meta property="twitter:description" content="Redefining web experiences through emotional design and technical precision." />
+    <meta property="twitter:image" content="https://picsum.photos/seed/lumina-og/1200/630" />
+
+    <!-- Performance: Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              art: ['Syncopate', 'sans-serif'],
+            },
+            colors: {
+              accent: '#6366f1',
+              void: '#030303',
+            },
+            animation: {
+              'blob': 'blob 10s infinite',
+              'float': 'float 8s ease-in-out infinite',
+              'spin-slow': 'spin 20s linear infinite',
+              'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+            },
+            keyframes: {
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1) rotate(0deg)' },
+                '33%': { transform: 'translate(50px, -50px) scale(1.2) rotate(120deg)' },
+                '66%': { transform: 'translate(-40px, 40px) scale(0.8) rotate(240deg)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1) rotate(360deg)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { opacity: 0.5 },
+                '50%': { opacity: 0.8 },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #030303;
+        color: #f8fafc;
+        overflow-x: hidden;
+        cursor: none; /* Hide default cursor */
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #030303;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 0px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+      }
+
+      /* 
+         Optimization: Static noise pattern instead of dynamic SVG filter
+         This significantly reduces CPU usage.
+      */
+      .noise-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9998;
+        opacity: 0.05;
+        pointer-events: none;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAA5OTkAAABERERmZmYzMzOZmZlmZmY/a9O0AAAACHRSTlMAMwA3MzMzM7O0s14AAAAJcEhZcwAAAsQAAALEAVuRnQAAAN5JREFUOMuV0DEOwyAMQFELorR46gG69P7X6AEMWbJkwv2/AU+2qz46M/O/8n68j319fK/7fvzC53m9y/743ue+P8axH+f+eB/7+vhFz/txy/t+3Nf9uO/H/Tj3x/vY18cvWu932R/v+9z3xzj249wf72NfH7/oeT9ued+P+7of9/24H+f+eB/7+vhF6/0u++N9n/v+GMd+nPvjfEzr4xct78ct7/txX/fjvh/349wf72NfH79ovd9lf7zvc98f49iPc3+8j319/KLn/bjlfT/u637c9+N+nPvjfezrw9/6A/wD/gH/gH/AP+Af8A/4B/wD/gH/gH/AP+Af8A/4B/wD/gH/gH/AP7z9A21/j11s+G0kAAAAAElFTkSuQmCC");
+      }
+
+      .glass-panel {
+        background: rgba(20, 20, 20, 0.6);
+        /* Optimization: Reduced blur radius in backdrop filter */
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      
+      .text-stroke {
+        -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+        color: transparent;
+      }
+      
+      .text-stroke-hover:hover {
+        -webkit-text-stroke: 0px;
+        color: white;
+      }
+
+      /* Selection */
+      ::selection {
+        background: #fff;
+        color: #000;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
